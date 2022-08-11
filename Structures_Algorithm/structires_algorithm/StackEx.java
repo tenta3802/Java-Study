@@ -14,6 +14,8 @@ public class StackEx {
 		stack.push("three");
 		stack.push("four");
 		stack.push("five");
+		stack.push("six");
+
 		
 		// String myNumber = stack.pop(); 삭제 값 객체에 담기 -> 객체 출력하면 삭제 값 출력
 		// System.out.println(stack.peek()); 맨 위의 값 출력 가능 (pop()은 삭제이기 때문에 차이가 있음)
