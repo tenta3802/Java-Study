@@ -13,6 +13,7 @@ public class IntegerParseInt {
 		
 		System.out.println(input.getClass().getName()); //input 타입 확인
 		System.out.println(num+3); // 변환 후 테스트
+		System.out.println(num+100);
 
 	}
 
