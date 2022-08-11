@@ -9,7 +9,7 @@ public class ArrayEx {
 			for(int i=0; i<ball.length; i++) //45개 만큼 ball 배열에 넣기 1~ 46까지
 				ball[i] = i+1;
 				
-			int temp = 0; // temp 변수 생성
+			int temp = 0;
 
 			for(int i=0; i<10; i++) { 
 				// Math.random은 0~0.9x까지 랜덤으로 반환

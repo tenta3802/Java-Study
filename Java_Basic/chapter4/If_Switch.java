@@ -32,6 +32,9 @@ public class If_Switch {
 		case 4:
 			System.out.println("samsung");
 			break;
+		default:
+			System.out.println("kakao");
+
 		}
 	}
 }
