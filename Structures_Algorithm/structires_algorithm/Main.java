@@ -1,28 +1,40 @@
 package structires_algorithm;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Main {
 	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
 		
-        String[] temp = {"a","b","c"};
-        List<String> list = new ArrayList<>(Arrays.asList(temp));
-        // Arrays.asList(temp); 만 해주면 Primitive Stream 값들을 Wrapper Class로
-        // 바꾸어 주지 않기 때문에 값 추가나 삭제 등 할 수 없다.
-        // 그래서 ArrayList로 인한 변환을 해줘야 한다.
-        
-        List<String> list2 = new  ArrayList<>();
-        String[] temp2 = list2.toArray(new String[list2.size()]);
-        
-        int[] arr = {1123, 12313, 3122, 34, 43};
-        List<Integer> inlist = Arrays.stream(arr).boxed().collect(Collectors.toList());
-        //boxed() 메소드는 위의 ArrayList 와 마찬가지로 primitive를 wrapper 로 바꿔줌
-        // collect(Collectors.toList())는 stream을 List로 변경
-        
-        List<Integer> integer2 = new ArrayList<>();
-        int[] arr2 = integer2.stream().mapToInt(i->i).toArray();
-        
-        
-    }
+		long a = scanner.nextLong();
+		long b = scanner.nextLong();
+		List<Long> list = new ArrayList<>();
+		
+		if(a==b) {
+			System.out.println(0);
+		}else if(a>b) {
+			System.out.println(a-b-1);
+		}else {
+			System.out.println(b-a-1);
+		}
+		
+		if(a>b) {
+			for(long i=b+1; i<a; i++) {
+				list.add(i);
+			}
+		}else if(a<b) {
+			for(long i=a+1; i<b; i++) {
+				list.add(i);
+			}
+		}
+		Collections.sort(list);
+		
+		for(int i=0; i<list.size(); i++) {
+			if(i==list.size()-1) {
+				System.out.print(list.get(i));
+			}else {
+				System.out.print(list.get(i)+" ");
+			}
+		}
+	}
 }
