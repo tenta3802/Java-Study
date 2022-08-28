@@ -1,40 +1,38 @@
 package structires_algorithm;
 
-import java.util.*;
+import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
+	
+		Scanner sc = new Scanner(System.in);
 		
-		long a = scanner.nextLong();
-		long b = scanner.nextLong();
-		List<Long> list = new ArrayList<>();
+		int n = sc.nextInt();
 		
-		if(a==b) {
-			System.out.println(0);
-		}else if(a>b) {
-			System.out.println(a-b-1);
-		}else {
-			System.out.println(b-a-1);
+		for(int i=n; i>0; i--) {
+			for(int l=0; l<n-i; l++) {
+				System.out.print(" ");
+			}
+			for(int j=1; j<=i*2-1; j++) {
+				System.out.print("*");
+			}
+			for(int k=0; k<n-i; k++) {
+				System.out.print(" ");
+			}
+			System.out.println();
 		}
 		
-		if(a>b) {
-			for(long i=b+1; i<a; i++) {
-				list.add(i);
+		for(int i=1; i<n; i++) {
+			for(int l=1; l<n-i; l++) {
+				System.out.print(" ");
 			}
-		}else if(a<b) {
-			for(long i=a+1; i<b; i++) {
-				list.add(i);
+			for(int j=0; j<i*2+1; j++) {
+				System.out.print("*");
 			}
-		}
-		Collections.sort(list);
-		
-		for(int i=0; i<list.size(); i++) {
-			if(i==list.size()-1) {
-				System.out.print(list.get(i));
-			}else {
-				System.out.print(list.get(i)+" ");
+			for(int k=1; k<n-i; k++) {
+				System.out.print(" ");
 			}
+			System.out.println();
 		}
 	}
 }
