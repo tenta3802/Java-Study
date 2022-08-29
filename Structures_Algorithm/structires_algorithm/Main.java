@@ -1,38 +1,26 @@
 package structires_algorithm;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Main {
 	public static void main(String[] args) {
 	
 		Scanner sc = new Scanner(System.in);
+		Map<Integer, String> map = new HashMap<>();
 		
 		int n = sc.nextInt();
 		
-		for(int i=n; i>0; i--) {
-			for(int l=0; l<n-i; l++) {
-				System.out.print(" ");
-			}
-			for(int j=1; j<=i*2-1; j++) {
-				System.out.print("*");
-			}
-			for(int k=0; k<n-i; k++) {
-				System.out.print(" ");
-			}
-			System.out.println();
+		for(int i=0; i<n; i++) {
+			int old = sc.nextInt();
+			String name = sc.next();
+			map.put(old, name);
 		}
 		
-		for(int i=1; i<n; i++) {
-			for(int l=1; l<n-i; l++) {
-				System.out.print(" ");
-			}
-			for(int j=0; j<i*2+1; j++) {
-				System.out.print("*");
-			}
-			for(int k=1; k<n-i; k++) {
-				System.out.print(" ");
-			}
-			System.out.println();
-		}
+		map.forEach((key,value)->{
+			System.out.println(key+" "+value);
+		});
 	}
 }
