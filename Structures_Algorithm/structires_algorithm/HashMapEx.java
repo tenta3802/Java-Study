@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 
-//ÇÁ·Î±×·¡¸Ó½º level.1 ÇØ½¬ ¿¹Á¦
+//í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤ level.1 í•´ì‰¬ ì˜ˆì œ
 public class HashMapEx {
 	public static void main(String[] args) {
 		String[] participant =  {"mislav", "stanko", "mislav", "ana"};
