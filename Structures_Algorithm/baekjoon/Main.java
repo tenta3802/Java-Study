@@ -1,45 +1,45 @@
 package baekjoon;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
 public class Main {
 	public static void main(String[] args) {
-		int n = 5;
-		int[] lost = {4,2};
-		int[] reserve = {3,5};
+		String[] participant =  {"mislav", "stanko", "mislav", "ana"};
+		String[] completion = {"stanko", "ana", "mislav"};
+		Arrays.sort(participant);
+		Arrays.sort(completion);
 		
-int answer = n - lost.length;  
+		String answer = "";
         
-        Arrays.sort(reserve);
-        Arrays.sort(lost);
+        HashMap<String,Integer> hm = new HashMap<>();
         
-        for(int i=0; i<reserve.length; i++){
-            if(Arrays.asList(lost).contains(reserve[i])){
-                int a = reserve[i];
-                int b = Arrays.asList(lost).indexOf(a);
-                reserve[i]=-1;
-                lost[b]=-1;
-                answer++;
-            }
+        for(int i=0; i<participant.length; i++) {
+        	if(hm.containsKey(participant[i])) {
+        		int count = (int)hm.get(participant[i]);
+        		hm.put(participant[i],count+1);
+        	}else {
+        		hm.put(participant[i], 1);
+        	}
         }
         
-        for(int i=0; i<reserve.length; i++){
-            for(int j=0; j<lost.length; j++){
-                if(lost[j]<0 || reserve[i]<0){
-                    continue;
-                }else{
-                    if(answer==n){ break;}
-                    int abs =Math.abs(reserve[i]-lost[j]);
-                
-                    if(abs==1){
-                    reserve[i]=-1;
-                    lost[j]=-1;
-                    answer++;
-                    break;
-                    }
-                }
-            }
+        for(int i=0; i<completion.length; i++) {
+        	if(hm.containsKey(completion[i])) {
+        		int count = (int)hm.get(completion[i]);
+        		hm.put(completion[i],count+1);
+        	}else {
+        		hm.put(completion[i], 1);
+        	}
         }
-
-        System.out.println(answer);
+        
+       Iterator<String> iter = hm.keySet().iterator();
+       
+       while(iter.hasNext()) {
+    	   String key = iter.next();
+    	   if(hm.get(key)%2!=0){
+    		   answer += key;
+    	   }
+       }
+       System.out.println(answer);
 	}
 }

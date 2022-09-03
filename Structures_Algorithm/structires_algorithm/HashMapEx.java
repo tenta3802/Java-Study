@@ -1,37 +1,47 @@
 package structires_algorithm;
 
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Map.Entry;
-import java.util.Set;
+import java.util.Iterator;
 
-
+//프로그래머스 level.1 해쉬 예제
 public class HashMapEx {
-	
+	public static void main(String[] args) {
+		String[] participant =  {"mislav", "stanko", "mislav", "ana"};
+		String[] completion = {"stanko", "ana", "mislav"};
+		Arrays.sort(participant);
+		Arrays.sort(completion);
 		
-	HashMap<Integer, String> hm = new HashMap<>();
-	HashMap<String, String> hm2 = new HashMap<>();
-
-	public <K, V> void put(K key, V value) {
-		
-	hm.put(1, "사과");
-	hm.put(2, "바나나");
-	hm.put(3, "포도"); 
-	// key 1이 이미 존재하면 key 1의 value가 "포도"로 대체
-
-	hm.remove(1); // key 값으로만 요소 삭제 가능
-	hm.clear(); // 전체 삭제
-
-	hm.containsKey(1); // key 값 중 1이 있으면 true, 없으면 false
-	hm.containsValue("사과"); // value 중 "사과"가 있으면 true, 없으면 false
+		String answer = "";
+        
+        HashMap<String,Integer> hm = new HashMap<>();
+        
+        for(int i=0; i<participant.length; i++) {
+        	if(hm.containsKey(participant[i])) {
+        		int count = (int)hm.get(participant[i]);
+        		hm.put(participant[i],count+1);
+        	}else {
+        		hm.put(participant[i], 1);
+        	}
+        }
+        
+        for(int i=0; i<completion.length; i++) {
+        	if(hm.containsKey(completion[i])) {
+        		int count = (int)hm.get(completion[i]);
+        		hm.put(completion[i],count+1);
+        	}else {
+        		hm.put(completion[i], 1);
+        	}
+        }
+        
+       Iterator<String> iter = hm.keySet().iterator();
+       
+       while(iter.hasNext()) {
+    	   String key = iter.next();
+    	   if(hm.get(key)%2!=0){
+    		   answer += key;
+    	   }
+       }
+       System.out.println(answer);
 	}
-	// 값 출력
-	// 방법 1
-	public <K> void keySet(){
-	for (Integer i: hm.keySet()) {
-		System.out.println(i + hm.get(i)); // 1 사과
-	}
-	// 방법 2: key와 value가 모두 필요할 때 주로 사용
-	for (Entry<Integer, String> entry: hm.entrySet())
-		System.out.println(entry.getKey() + entry.getValue()); // 1 사과
-		}	
-	}
+}
