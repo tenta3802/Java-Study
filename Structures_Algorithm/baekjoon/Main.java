@@ -1,45 +1,37 @@
 package baekjoon;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Iterator;
+//프로그래머스 level.1 해쉬 예제
 public class Main {
 	public static void main(String[] args) {
-		String[] participant =  {"mislav", "stanko", "mislav", "ana"};
-		String[] completion = {"stanko", "ana", "mislav"};
-		Arrays.sort(participant);
-		Arrays.sort(completion);
-		
+		StringBuilder sb = new StringBuilder();
+		String s = "a  B   Z";
+		int n = 4;
 		String answer = "";
-        
-        HashMap<String,Integer> hm = new HashMap<>();
-        
-        for(int i=0; i<participant.length; i++) {
-        	if(hm.containsKey(participant[i])) {
-        		int count = (int)hm.get(participant[i]);
-        		hm.put(participant[i],count+1);
-        	}else {
-        		hm.put(participant[i], 1);
-        	}
+        int size = s.length();
+
+        char[] arr = new char[s.length()];
+
+        for(int i=0; i<s.length(); i++){
+            arr[i] = s.charAt(i);
         }
-        
-        for(int i=0; i<completion.length; i++) {
-        	if(hm.containsKey(completion[i])) {
-        		int count = (int)hm.get(completion[i]);
-        		hm.put(completion[i],count+1);
-        	}else {
-        		hm.put(completion[i], 1);
-        	}
+
+        for(int i=0; i<size; i++){
+            if(arr[i] == ' ')continue;
+            for(int j=1; j<=n; j++){
+                if(arr[i] == 'z'){
+                    arr[i] = 'a';
+                    continue;
+                }
+                else if(arr[i] == 'Z'){
+                    arr[i] = 'A';
+                    continue;
+                }
+                arr[i] = (char)(arr[i] + 1);
+            }
         }
+
+        answer = new String(arr);
         
-       Iterator<String> iter = hm.keySet().iterator();
-       
-       while(iter.hasNext()) {
-    	   String key = iter.next();
-    	   if(hm.get(key)%2!=0){
-    		   answer += key;
-    	   }
-       }
-       System.out.println(answer);
+        System.out.println(answer);
 	}
 }

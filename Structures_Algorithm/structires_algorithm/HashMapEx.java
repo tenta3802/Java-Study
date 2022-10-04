@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 
-//프로그래머스 level.1 해쉬 예제
+//[프로그래머스 해쉬] 예제
 public class HashMapEx {
 	public static void main(String[] args) {
 		String[] participant =  {"mislav", "stanko", "mislav", "ana"};

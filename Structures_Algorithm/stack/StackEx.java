@@ -1,4 +1,4 @@
-package structires_algorithm;
+package stack;
 
 import java.util.Stack;
 
