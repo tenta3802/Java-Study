@@ -16,13 +16,14 @@ public class ArrayStack {
 		stack[++top] = item;
 		System.out.println(stack[top] + " Push!");
 	}
+	
 	public void pop() {
 		System.out.println(stack[top] + " Pop!");
 		int pop = stack[top];
 		stack[top--] = 0;
 	}
+	
 	public void peek() {
 		System.out.println(stack[top] + " Peek!");
-
 	}
 }
