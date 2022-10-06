@@ -4,11 +4,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 
-<<<<<<< HEAD
-//[ÇÁ·Î±×·¡¸Ó½º ÇØ½¬] ¿¹Á¦
-=======
-//í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤ level.1 í•´ì‰¬ ì˜ˆì œ
->>>>>>> 7a75bf4cc0348ef0bf89c0b86c78539644df2f36
 public class HashMapEx {
 	public static void main(String[] args) {
 		String[] participant =  {"mislav", "stanko", "mislav", "ana"};
