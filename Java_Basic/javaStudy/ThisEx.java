@@ -15,12 +15,12 @@ public class ThisEx {
 		int old = 0;
 		System.out.println("자기소개 시작");
 		inputInfo();
-		System.out.printf("이름:%s, Id:%d\n", name, this.old);
+		System.out.printf("이름:%s, Id:%d\n", name, old);
 	}
 	
 	void inputInfo() {
 		System.out.print("이름과 나이를 입력하세요: ");
 		name = sc.next();
-		old = sc.nextInt();
+		this.old = sc.nextInt();
 	}
 }
