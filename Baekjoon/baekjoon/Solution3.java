@@ -30,7 +30,7 @@ public class Solution3 {
 			}
 		}
 		
-		for (int a : arr2) {
+		for (int i=0; i<arr2.length; i++) {
 			while (a > 0) {
 				String m = "";
 				if (a < 2) {
